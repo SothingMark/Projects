@@ -1,0 +1,37 @@
+import pandas as pd
+df = pd.read_excel(r"C: dictory")
+df.drop_duplicate()
+df = df.drop_duplicate()
+df
+df.drop(columns = "Not_useful_column")
+df
+#df["last_name"].str.lstrip("...")
+#df["last_name"] = df["last_name"].str.lstrip("...")
+#df["last_name"].str.lstrip("/")
+#df["last_name"] = df["last_name"].str.lstrip("/")
+df["last_name"] = df["last_name"].str.strip("123._/")
+df
+#df["phone_number"] = df["phone_number"].str.replace('[^a-zA-Z0-9]',")
+#df["phone_number"].apply(lambda x:[0:3] + '-' + x[3:6] + '-'+ x[6:10])
+#df["phone_number"] = df["phone_number"].apply(lambda x: str(x))
+#df["phone_number"] = df["phone_number"].apply(lambda x: x[0:3] + '-' + x[3:6]+'-'+ x[6:10])
+df["phone_number"] = df["phone_number"].str.replace('nan--','')
+df["phone_number"] = df["phone_number"].str.replace('Na--','')
+df
+df[["street_address", "state", "zip_code"]] = df ["address"].str.split(',',2, expand = True)
+df
+df["paying customer"] = df["paying customer"].str.replace('Yes','Y')
+df["paying customer"] = df["paying customer"].str.replace('No','N')
+df
+#df.str.replace('N/a','')
+df = df.fillna('')
+df
+for x in df.index:
+   df.loc[x,"Adress"] == 'Y':
+   df.drop(x, inplace = True)
+df
+
+
+#df=df.dropna(subset="Address"), inplace=True
+df = df.reset_index(drop=True)
+df
